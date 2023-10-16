@@ -1,0 +1,18 @@
+<div class="cont">
+  <div class="container">
+    <h1 style="letter-spacing: 4px">ADIVINANDO PERSONAJE</h1>
+    <div class="card" *ngFor="let item of personajeFinal">
+      <div class="cont-card">
+        <h1>{{ item.nombre }}</h1>
+        <div class="cont-img">
+          <img src="{{ item.foto }}" alt="" />
+        </div>
+        <div *ngIf="errorMensaje" class="error-message">
+          {{ errorMensaje }}
+        </div>
+        <p>NOMBRE DEL JUGADOR: {{ nombre_jugador }}</p>
+      </div>
+    </div>
+  </div>
+  <button class="btnvolver" (click)="volverjugar()">Volver a jugar</button>
+</div>

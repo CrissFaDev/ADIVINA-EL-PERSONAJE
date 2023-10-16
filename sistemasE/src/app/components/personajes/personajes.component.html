@@ -1,0 +1,10 @@
+<div class="cont">
+  <div class="container">
+    <div class="card" *ngFor="let item of result">
+      <h1>{{ item.nombre }}</h1>
+      <img style="width: 400px; height: 400px" src="{{ item.foto }}" alt="" />
+      <p style="font-size: 30px">{{ item.descripcion }}</p>
+    </div>
+  </div>
+  <button class="btniniciar" (click)="iniciar()">Iniciar juego</button>
+</div>

@@ -1,0 +1,44 @@
+<div class="cont">
+  <div class="pregunta">
+    <div
+      class="cont-pre"
+      *ngIf="
+        preguntaActual < listpregunta.length && formularioCompletado !== true
+      "
+    >
+      <h2>{{ listpregunta[preguntaActual].pregunta }}</h2>
+      <div class="selecion">
+        <label class="label">
+          <input
+            type="radio"
+            name="respuesta"
+            [(ngModel)]="respuestas[preguntaActual]"
+            [value]="{
+              id_pregunta: listpregunta[preguntaActual].id_pregunta,
+              respuesta: 1
+            }"
+          />
+          Sí
+        </label>
+        <label class="label">
+          <input
+            type="radio"
+            name="respuesta"
+            [(ngModel)]="respuestas[preguntaActual]"
+            [value]="{
+              id_pregunta: listpregunta[preguntaActual].id_pregunta,
+              respuesta: 0
+            }"
+          />
+          No
+        </label>
+      </div>
+
+      <button (click)="siguientePregunta()">Confirmar</button>
+    </div>
+
+    <div class="respuesta" *ngIf="formularioCompletado === true">
+      <button class="btn-env" (click)="resultado()">Mostrar personaje</button>
+    </div>
+  </div>
+</div>

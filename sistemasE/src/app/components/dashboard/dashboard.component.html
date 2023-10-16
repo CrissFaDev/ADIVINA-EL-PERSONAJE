@@ -1,0 +1,15 @@
+<div class="cont">
+  <div class="formulario">
+    <form [formGroup]="miFormulario">
+      <input
+        formControlName="nombre"
+        type="text"
+        id="nombreCompleto"
+        placeholder="Nombre Completo"
+      />
+    </form>
+    <button (click)="mostrarnombre()">PLAY</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

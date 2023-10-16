@@ -1,0 +1,51 @@
+.cont {
+  background: url("https://img.freepik.com/vector-premium/antiguo-fondo-videojuegos-retro-escenario-diseno-juegos-estilo-retro-clasico_41737-812.jpg");
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.container {
+  padding: 25px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 30%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #3eca1724;
+  border: 3px solid #3eca17;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.card h2 {
+  margin: 0;
+}
+.card img {
+  width: 250px;
+}
+
+.btniniciar {
+  background-color: rgba(0, 0, 255, 0.416)  ;
+  padding: 25px;
+  width: 10%;
+  border-radius: 7px;
+  font-size: 30px;
+  color: beige;
+  cursor:pointer;
+}
+
+.btniniciar:hover {
+ background-color: rgb(32, 32, 62);
+}
