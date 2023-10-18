@@ -60,8 +60,55 @@ GET  http://localhost:3000/preguntaxjugador/pe?id_pregunta=2&respuesta=1 HTTP/1.
 POST  http://localhost:3000/preguntaxjugador HTTP/1.1
 Content-Type: application/json
 
-{
-   "id_personaje": 6,
-   "id_pregunta": 11,
-    "respuesta": 0
+
+{   
+  "nombre": "mario",
+  "descripcion": " Mario es retratado como un personaje amable, valiente y aventurero. Siempre está dispuesto a ayudar a los demás y se embarca en diversas misiones",
+  "foto": "",
+  "preguntas": [
+    {
+      "id_pregunta": 1,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 2,
+      "respuesta": 1
+    },
+    {
+      "id_pregunta": 3,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 4,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 5,
+      "respuesta": 1
+    },
+    {
+      "id_pregunta": 6,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 7,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 8,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 9,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 10,
+      "respuesta": 0
+    },
+    {
+      "id_pregunta": 11,
+      "respuesta": 0
+    }
+  ]
 }

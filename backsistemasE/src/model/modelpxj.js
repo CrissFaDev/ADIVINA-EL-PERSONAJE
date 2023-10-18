@@ -28,25 +28,38 @@ export const GetonePXJ = async (req, res) => {
 };
 
 export const postPXJ = async (req, res) => {
-  const { id_personaje, id_pregunta, respuesta } = req.body;
-  //console.log(id_personaje, id_pregunta, respuesta);
+  const { nombre, descripcion, foto, preguntas } = req.body;
 
-  const [pxj] = await (
-    await db
-  ).query(
-    `INSERT INTO pregunta_x_personaje (id_personaje, id_pregunta, respuesta) 
-    VALUES (?, ?, ?);`,
-    [id_personaje, id_pregunta, respuesta]
-  );
+  const connection = await db;
 
-  const idpxj = pxj.insertId;
+  try {
+    // Insert personaje
+    const [newPersonaje] = await connection.query(
+      "INSERT INTO personaje (nombre, descripcion, foto) VALUES (?, ?, ?)",
+      [nombre, descripcion, foto]
+    );
+    const idPersonaje = newPersonaje.insertId;
 
-  const [pregunta_x_personaje] = await (
-    await db
-  ).query("SELECT * FROM pregunta_x_personaje where id_pxp = ?", [idpxj]);
+    // Insert preguntas
+    for (const pregunta of preguntas) {
+      const { id_pregunta, respuesta } = pregunta;
+      await connection.query(
+        "INSERT INTO pregunta_x_personaje (id_personaje, id_pregunta, respuesta) VALUES (?, ?, ?)",
+        [idPersonaje, id_pregunta, respuesta]
+      );
+    }
 
-  res.status(200).send({
-    message: `se creo correctamente la pregunta_x_personaje pregunta  `,
-    result: pregunta_x_personaje,
-  });
+    // traerme las pxj del id persinaje
+    const [createdPXJ] = await connection.query(
+      "SELECT * FROM pregunta_x_personaje WHERE id_personaje = ?",
+      [idPersonaje]
+    );
+
+    res.status(200).send({
+      message: "Se crearon las preguntas_x_personaje correctamente",
+      result: createdPXJ,
+    });
+  } catch (error) {
+    res.status(500).send({ message: "Error en la solicitud" });
+  }
 };
